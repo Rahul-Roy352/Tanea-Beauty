@@ -1,18 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
-export const Route = createFileRoute("/shop")({
-  head: () => ({
-    meta: [
-      { title: "Shop — Ténura Beauty" },
-      { name: "description", content: "Browse the full Ténura Beauty collection." },
-    ],
-  }),
-  component: ShopPage,
-});
-
-function ShopPage() {
+export default function Shop() {
   return (
     <div className="container-x py-24 text-center">
+      <Helmet><title>Shop — Ténura Beauty</title></Helmet>
       <p className="text-xs tracking-[0.35em] text-rose mb-3">SHOP</p>
       <h1 className="font-display text-5xl">The Full Collection</h1>
       <p className="mt-4 text-ink/60 max-w-md mx-auto">Coming soon — our complete catalog of luxe beauty essentials.</p>
