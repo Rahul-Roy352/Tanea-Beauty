@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { Search, User, ShoppingBag } from "lucide-react";
 
 const nav = [
@@ -21,14 +21,18 @@ export function SiteHeader() {
         <div className="container-x flex items-center justify-between h-20">
           <nav className="hidden md:flex items-center gap-7 text-sm flex-1">
             {nav.map((n) => (
-              <Link
+              <NavLink
                 key={n.to}
                 to={n.to}
-                activeProps={{ className: "text-ink underline underline-offset-8 decoration-1" }}
-                className="text-ink/80 hover:text-ink transition-colors"
+                end={n.to === "/"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-ink underline underline-offset-8 decoration-1"
+                    : "text-ink/80 hover:text-ink transition-colors"
+                }
               >
                 {n.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
           <Link to="/" className="font-display text-3xl tracking-wide">
